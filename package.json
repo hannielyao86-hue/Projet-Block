@@ -1,0 +1,16 @@
+{
+  "name": "taskmanager-dapp",
+  "version": "1.0.0",
+  "description": "DApp de gestion de tâches sur Ethereum",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy_local.js --network localhost",
+    "front": "npx serve frontend"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.19.0"
+  }
+}

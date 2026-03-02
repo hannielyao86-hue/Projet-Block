@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 TaskManager DApp
 Application décentralisée de gestion de tâches sur Ethereum (réseau local Hardhat).
 
@@ -10,7 +8,7 @@ MetaMask (extension navigateur)
 
 
 Installation
-bashgit clone https://github.com/votre-utilisateur/taskmanager-dapp.git
+bashgit clone https://github.com/hannielyao86-hue/Projet-Block.git
 cd taskmanager-dapp
 npm install
 
@@ -39,4 +37,3 @@ scripts/            → Script de déploiement
 test/               → Tests unitaires
 frontend/           → Interface utilisateur
 hardhat.config.js   → Configuration réseau
->>>>>>> fb0373315f95a5f15d344a9bb0ee827f26d44d4e

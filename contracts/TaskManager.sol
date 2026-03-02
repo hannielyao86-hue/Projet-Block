@@ -1,4 +1,5 @@
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
 contract TaskManager {
     struct Task{
@@ -13,9 +14,8 @@ contract TaskManager {
     event TaskCreated(uint256 id, string content);
     event TaskToggled(uint256 id, bool completed);
 
-    function create(string memory _content) public {
-        require(bytes(_content).length > 0, "Le contenu ne peut pas etre vide");
-
+    function createTask(string memory _content) public {
+        require(bytes(_content).length > 0, "Content cannot be empty");
         taskCount++;
         tasks[taskCount] = Task(taskCount, _content, false);
 
@@ -30,6 +30,6 @@ contract TaskManager {
 
     function getTask(uint256 _id) public view returns (Task memory){
         require(_id > 0 && _id <= taskCount, "Id invalide");
-        return tasks[_id]
+        return tasks[_id];
     } 
 }

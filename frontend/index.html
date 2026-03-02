@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dApp To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Projet Blockchain</h1>
+            <div class="wallet-section">
+                <button id="connectBtn" class="btn primary">Connecter Wallet</button>
+                <span id="walletAddress" class="wallet-address"></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <input type="text" id="taskInput" placeholder="Nouvelle tâche...">
+                <button id="addTaskBtn" class="btn">Ajouter une tâche</button>
+            </div>
+
+            <div id="loader" class="loader" aria-live="polite">
+                ⏳ Transaction en cours... veuillez patienter.
+            </div>
+
+            <ul id="taskList" class="task-list"></ul>
+        </main>
+
+       
+    </div>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js" type="application/javascript"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

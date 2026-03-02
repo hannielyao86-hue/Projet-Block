@@ -8,7 +8,7 @@ MetaMask (extension navigateur)
 
 
 Installation
-bashgit clone https://github.com/votre-utilisateur/taskmanager-dapp.git
+bashgit clone https://github.com/hannielyao86-hue/Projet-Block.git
 cd taskmanager-dapp
 npm install
 

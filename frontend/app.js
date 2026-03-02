@@ -1,5 +1,7 @@
 // Adresse du contrat (à remplacer après déploiement)
-const CONTRACT_ADDRESS = "http://127.0.0.1:8545"; // ex: "0x1234..."
+// **IMPORTANT** : ce n'est pas l'URL du nœud, mais l'adresse Ethereum du contrat
+// Exemple : const CONTRACT_ADDRESS = "0xAbC123...";
+const CONTRACT_ADDRESS = "";
 let contract;
 
 async function connectWallet() {
@@ -26,23 +28,30 @@ async function connectWallet() {
 
 async function loadTasks() {
     if (!contract) return;
-    const count = await contract.taskCount();
-    const list = document.getElementById("taskList");
-    list.innerHTML = "";
+    try {
+        const count = await contract.taskCount();
+        const list = document.getElementById("taskList");
+        list.innerHTML = "";
 
-    for (let i = 1; i <= count; i++) {
-        const task = await contract.tasks(i);
-        const li = document.createElement("li");
+        for (let i = 1; i <= count; i++) {
+            const task = await contract.tasks(i);
+            const li = document.createElement("li");
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.completed;
         checkbox.addEventListener("change", async () => {
             showLoader(true);
-            const tx = await contract.toggleCompleted(task.id);
-            await tx.wait();
-            showLoader(false);
-            loadTasks();
+            try {
+                const tx = await contract.toggleCompleted(task.id);
+                await tx.wait();
+                await loadTasks();
+            } catch (err) {
+                console.error("toggleCompleted failed", err);
+                alert("Erreur lors du changement d'état : " + err.message);
+            } finally {
+                showLoader(false);
+            }
         });
 
         const span = document.createElement("span");
@@ -60,11 +69,17 @@ async function addTask() {
     const content = input.value.trim();
     if (!content) return;
     showLoader(true);
-    const tx = await contract.createTask(content);
-    await tx.wait();
-    showLoader(false);
-    input.value = "";
-    loadTasks();
+    try {
+        const tx = await contract.createTask(content);
+        await tx.wait();
+        input.value = "";
+        await loadTasks();
+    } catch (err) {
+        console.error("createTask failed", err);
+        alert("Erreur lors de l'ajout : " + err.message);
+    } finally {
+        showLoader(false);
+    }
 }
 
 function showLoader(visible) {

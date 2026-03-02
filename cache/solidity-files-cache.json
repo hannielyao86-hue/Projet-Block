@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\bukuruofficial\\Desktop\\Projet-Block\\contracts\\TaskManager.sol": {
-      "lastModificationDate": 1772455138166,
+    "C:\\wamp64\\www\\projet-block\\contracts\\TaskManager.sol": {
+      "lastModificationDate": 1772460664411,
       "contentHash": "ab433d07c3abf056d9fa4a7408039bf1",
       "sourceName": "contracts/TaskManager.sol",
       "solcConfig": {

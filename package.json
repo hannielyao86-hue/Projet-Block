@@ -10,7 +10,8 @@
   "compile": "hardhat compile",
   "test": "hardhat test",
   "node": "hardhat node",
-  "deploy:local": "hardhat run scripts/deploy_local.js --network localhost"
+  "deploy:local": "hardhat run scripts/deploy_local.js --network localhost",
+  "front": "npx serve frontend"
 },
   "keywords": [],
   "author": "",
